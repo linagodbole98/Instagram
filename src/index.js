@@ -15,7 +15,7 @@ app.use(multer().any());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 //  ------------------- Connection Establishment Between Application and Database -------------------//
-mongoose.connect("mongodb+srv:linagodbole99:dAix1EtU6C6yxJDR@cluster0.oip3eje.mongodb.net/Instagram",
+mongoose.connect("mongodb+srv://linagodbole99:dAix1EtU6C6yxJDR@cluster0.oip3eje.mongodb.net/group23Database",
     { useNewUrlParser: true,})
   .then(() => console.log("MongoDb is connected!"))
   .catch((err) => console.log(err));
@@ -26,7 +26,9 @@ app.use(express.json());
 
 
 app.use("/", route);
-
+app.get("/", (req,res)=>{
+    console.log("life");
+})
 
 
 app.use("*", (req, res) => {
